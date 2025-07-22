@@ -149,5 +149,56 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }, observerOptions);
         fadeInElements.forEach(el => fadeInObserver.observe(el));
+
+        // --- Keypad Logic ---
+        const keypad = document.getElementById('keypad-container');
+        if (keypad) {
+            const display = document.getElementById('keypad-display');
+            const buttons = document.querySelectorAll('.keypad-btn');
+            const clearBtn = document.getElementById('keypad-clear');
+            const backspaceBtn = document.getElementById('keypad-backspace');
+            const CORRECT_CODE = '1968';
+            let currentInput = '';
+
+            const updateDisplay = () => {
+                display.textContent = currentInput;
+            };
+
+            const checkCode = () => {
+                if (currentInput === CORRECT_CODE) {
+                    window.location.href = 'secret.html'; // <-- UPDATED LINE
+                }
+                // Reset if incorrect and length is 4 or more
+                if (currentInput.length >= 4 && currentInput !== CORRECT_CODE) {
+                    setTimeout(() => {
+                        currentInput = '';
+                        updateDisplay();
+                    }, 300); // Small delay to show the wrong digit before clearing
+                }
+            };
+
+            buttons.forEach(button => {
+                // Exclude special action buttons from the main digit logic
+                if (button.id === 'keypad-clear' || button.id === 'keypad-backspace') return;
+
+                button.addEventListener('click', () => {
+                    if (currentInput.length < 4) {
+                       currentInput += button.textContent;
+                        updateDisplay();
+                        checkCode(); 
+                    }
+                });
+            });
+
+            clearBtn.addEventListener('click', () => {
+                currentInput = '';
+                updateDisplay();
+            });
+
+            backspaceBtn.addEventListener('click', () => {
+                currentInput = currentInput.slice(0, -1);
+                updateDisplay();
+            });
+        }
     }
 });
