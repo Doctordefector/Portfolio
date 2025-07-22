@@ -1,0 +1,410 @@
+:root {
+    --bg-color: #0a0a0a;
+    --text-color: #e0e0e0;
+    --heading-color: #ffffff;
+    --light-grey: #333333;
+    --accent-color: #A37C43;
+    --font-heading: 'Space Mono', monospace;
+    --font-body: 'Inter', sans-serif;
+}
+
+/* --- Global Styles & Resets --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+#main-content {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+#main-content.loaded {
+    opacity: 1;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--heading-color);
+    font-weight: 400;
+}
+
+section {
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--light-grey);
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* --- Preloader --- */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease-in-out;
+    pointer-events: none;
+}
+
+#preloader.fade-out {
+    opacity: 0;
+}
+
+#language-hello {
+    color: var(--heading-color);
+    font-family: var(--font-body);
+    font-size: 2.5rem;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* --- Navigation --- */
+.sticky-nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--light-grey);
+    padding: 1.5rem 0;
+}
+
+.sticky-nav nav {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.sticky-nav nav a {
+    color: var(--text-color);
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.sticky-nav nav a:hover {
+    color: var(--heading-color);
+}
+
+/* --- Hero Section --- */
+#hero {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#hero h1 {
+    font-size: 3rem;
+    letter-spacing: 0.5em;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    padding-left: 0.5em;
+}
+
+#hero p {
+    font-size: 1.1rem;
+    color: #aaa;
+}
+
+/* --- Projects Section (Two-Column Layout) --- */
+#projects h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 4rem;
+}
+
+.projects-layout {
+    display: flex;
+    gap: 4rem;
+    align-items: flex-start;
+}
+
+/* Left Column: Timeline Graphic */
+.timeline-graphic {
+    flex: 1;
+    position: relative;
+    padding-top: 1.5rem; /* Align top with first project */
+    align-self: stretch; /* Make it as tall as the right column */
+}
+
+.timeline-graphic .line {
+    width: 2px;
+    height: 100%;
+    background: var(--light-grey);
+    position: absolute;
+    left: 10%;
+    top: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 1s ease-out 0.2s; /* Add delay */
+}
+.timeline-graphic.visible .line {
+    transform: scaleY(1);
+}
+
+.timeline-graphic .branch {
+    position: relative;
+    height: 140px; /* Adjust height for spacing */
+    margin-left: 10%;
+}
+.timeline-graphic .branch::before {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    background: var(--light-grey);
+    top: 50%;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.7s ease-out;
+}
+.timeline-graphic.visible .branch::before {
+    transform: scaleX(1);
+}
+.timeline-graphic.visible .branch:nth-of-type(1)::before { transition-delay: 0.5s; }
+.timeline-graphic.visible .branch:nth-of-type(2)::before { transition-delay: 0.7s; }
+.timeline-graphic.visible .branch:nth-of-type(3)::before { transition-delay: 0.9s; }
+
+.timeline-graphic .node {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--light-grey);
+    background-color: var(--bg-color);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease-out;
+}
+.timeline-graphic.visible .node {
+    transform: translate(-50%, -50%) scale(1);
+}
+.timeline-graphic.visible .branch:nth-of-type(1) .node { transition-delay: 0.8s; }
+.timeline-graphic.visible .branch:nth-of-type(2) .node { transition-delay: 1s; }
+.timeline-graphic.visible .branch:nth-of-type(3) .node { transition-delay: 1.2s; }
+
+/* Right Column: Projects List */
+.projects-list {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.project-item {
+    display: block;
+    background-color: #111;
+    border: 1px solid var(--light-grey);
+    padding: 2.5rem 2rem;
+    transition: transform 0.4s ease, background-color 0.4s ease;
+}
+
+.project-item:hover {
+    transform: scale(1.03);
+    background-color: #1a1a1a;
+    border-color: #555;
+}
+
+.project-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--heading-color);
+}
+
+.project-item span {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* --- About Section --- */
+.about-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#about h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-link {
+    display: inline-block;
+    margin-top: 2rem;
+    color: var(--heading-color);
+    text-decoration: underline;
+    text-underline-offset: 8px;
+    transition: color 0.3s ease, text-underline-offset 0.3s ease;
+}
+
+.cta-link:hover {
+    color: var(--accent-color);
+    text-underline-offset: 10px;
+}
+
+/* --- Contact Section --- */
+#contact h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+#contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--light-grey);
+    padding: 0.8rem 0;
+    color: var(--heading-color);
+    font-family: var(--font-body);
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-bottom-color: var(--accent-color);
+}
+
+.ghost-button {
+    background: transparent;
+    border: 1px solid var(--light-grey);
+    color: var(--text-color);
+    padding: 1rem 2rem;
+    font-family: var(--font-heading);
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    align-self: center;
+    margin-top: 1rem;
+}
+
+.ghost-button:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #000;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #000;
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.social-links {
+    margin-bottom: 1.5rem;
+}
+
+.social-links a {
+    color: var(--text-color);
+    margin: 0 1rem;
+    font-size: 0.9rem;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+}
+
+.contact-info {
+    margin-bottom: 1.5rem;
+    color: #888;
+}
+
+.contact-info span {
+    margin: 0 1rem;
+}
+
+footer p {
+    font-size: 0.8rem;
+    color: #555;
+}
+
+/* --- Animations --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.projects-list .fade-in:nth-child(2) { transition-delay: 0.2s; }
+.projects-list .fade-in:nth-child(3) { transition-delay: 0.4s; }
+
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    section {
+        padding: 4rem 1.5rem;
+    }
+    .sticky-nav nav {
+        gap: 1.5rem;
+    }
+    .sticky-nav nav a {
+        font-size: 0.8rem;
+        letter-spacing: 0.15em;
+    }
+    #hero h1 {
+        font-size: 2rem;
+    }
+    /* Hide decorative timeline and stack projects on mobile */
+    .projects-layout {
+        flex-direction: column;
+    }
+    .timeline-graphic {
+        display: none;
+    }
+}
