@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andrei Chapliuk,Candidate</title>
+    <title>Andrei Chapliuk | Candidate</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,8 +21,8 @@
         <header class="sticky-nav">
             <nav>
                 <a href="#hero">Home</a>
-                <a href="#projects">Projects</a>
-                <a href="#about">About</a>
+                <a href="#projects">Skillset</a>
+                <a href="#about-me">About</a>
                 <a href="#contact">Contact</a>
             </nav>
         </header>
@@ -41,75 +41,72 @@
                     <!-- Left Column: Timeline Graphic -->
                     <div class="timeline-graphic fade-in">
                         <div class="line"></div>
-                        <div class="branch">
-                            <div class="node"></div>
-                        </div>
-                        <div class="branch">
-                            <div class="node"></div>
-                        </div>
-                        <div class="branch">
-                            <div class="node"></div>
-                        </div>
+                        <div class="branch"><div class="node"></div></div>
+                        <div class="branch"><div class="node"></div></div>
+                        <div class="branch"><div class="node"></div></div>
                     </div>
-
                     <!-- Right Column: Projects List -->
                     <div class="projects-list">
-                        <a href="#" class="project-item fade-in">
-                            <h3>Placeholder 1</h3>
-                            <span>placeholder foot 1</span>
-                        </a>
-                        <a href="#" class="project-item fade-in">
-                            <h3>placeholder Two</h3>
-                            <span>footer 2</span>
-                        </a>
-                        <a href="#" class="project-item fade-in">
-                            <h3>placeholder Three</h3>
-                            <span>footer 3</span>
-                        </a>
+                        <a href="#" class="project-item fade-in"><h3>Placeholder 1</h3><span>placeholder foot 1</span></a>
+                        <a href="#" class="project-item fade-in"><h3>placeholder Two</h3><span>footer 2</span></a>
+                        <a href="#" class="project-item fade-in"><h3>placeholder Three</h3><span>footer 3</span></a>
                     </div>
                 </div>
             </section>
 
-            <!-- ABOUT SECTION -->
-            <section id="about" class="fade-in">
-                <h2>About Me</h2>
-                <div class="about-content">
-                    <p>PLACEHOLDER,WILL CHANGE LATER</p>
-                    <a href="#" class="cta-link">Learn More</a>
+            <!-- CONTACT DISPLAY SECTION -->
+            <section id="contact">
+                <h2 class="large-heading">I'd love to work together.</h2>
+                <div class="contact-details">
+                    <a href="mailto:chapliukjr@gmail.com">chapliukjr@gmail.com ↗</a>
+                    <span>+357 95 762344</span>
                 </div>
             </section>
 
-           <!-- NEW, WORKING CONTACT SECTION -->
-<section id="contact" class="fade-in">
-    <h2>Get In Touch</h2>
-    <!-- Update the action URL with your own from Formspree -->
-    <form id="contact-form" action="https://formspree.io/f/xanbeyky" method="POST">
-        <div class="form-group">
-            <input type="text" id="name" name="name" required placeholder="Your Name">
-        </div>
-        <div class="form-group">
-            <input type="email" id="email" name="email" required placeholder="Your Email">
-        </div>
-        <div class="form-group">
-            <textarea id="message" name="message" rows="5" required placeholder="Your Message"></textarea>
-        </div>
-        <button type="submit" class="ghost-button">Contact me directly!</button>
-    </form>
-</section>
+            <!-- ABOUT ME SECTION -->
+            <section id="about-me" class="fade-in">
+                <div class="about-layout">
+                    <div class="about-text">
+                        <h4>Quick about me</h4>
+                        <blockquote>"Helping firms showcase their product to the world through creative and unique design."</blockquote>
+                        <a href="#" class="cta-link">Learn more ↗</a>
+                    </div>
+                    <div class="about-image-container">
+                        <img src="Andrei.png" alt="Andrei Himself">
+                        <div class="image-socials">
+                            <a href="https://twitter.com" target="_blank">X / Twitter</a>
+                            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                            <a href="https://instagram.com" target="_blank">Instagram</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- CONTACT FORM SECTION (FUNCTIONAL) -->
+            <section id="contact-form-section" class="fade-in">
+                 <h2>Send a message</h2>
+                 <form id="contact-form" action="https://formspree.io/f/xanbeyky" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" required placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" required placeholder="Your Email">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" rows="5" required placeholder="Your Message"></textarea>
+                    </div>
+                    <button type="submit" class="ghost-button">Send ↗</button>
+                </form>
+            </section>
+
         </main>
 
         <footer>
             <div class="footer-content">
-                <div class="social-links">
-                    <a href="https://twitter.com" target="_blank">X/Twitter</a>
-                    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-                    <a href="https://instagram.com" target="_blank">Instagram</a>
+                <span>© Andrei Chapliuk 2025</span>
+                <div class="footer-right">
+                    <span>Andrei Chapliuk | Portfolio</span>
                 </div>
-                <div class="contact-info">
-                    <span>chapliukjr@gmail.com</span>
-                    <span>+357 95 762344</span>
-                </div>
-                <p>© 2025 Andrei Chapliuk.</p>
             </div>
         </footer>
     </div>

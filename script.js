@@ -8,23 +8,63 @@ document.addEventListener('DOMContentLoaded', () => {
     const preloader = document.getElementById('preloader');
     const helloElement = document.getElementById('language-hello');
     const mainContent = document.getElementById('main-content');
-    const GREETING_DURATION = 1200;
+    
+    // Speed increased by ~30% from 1200ms
+    const GREETING_DURATION = 850; 
+    
+    let preloaderTimeout; // To hold the timeout for the next greeting
+    let isPreloaderActive = true; // Flag to prevent multiple triggers
 
-    function showNextGreeting() {
-        if (greetingIndex >= greetings.length) {
-            if (preloader) preloader.classList.add('fade-out');
-            if (mainContent) mainContent.classList.add('loaded');
-            initializeMainContentScripts();
-            return;
+    // Function to cleanly end the preloader and start the main site
+    function endPreloader() {
+        // Only run if the preloader is currently active
+        if (!isPreloaderActive) return; 
+        isPreloaderActive = false;
+
+        // Stop the greeting loop from continuing
+        clearTimeout(preloaderTimeout);
+
+        if (preloader) {
+            preloader.classList.add('fade-out');
+            // Remove the click listener once it's used
+            preloader.removeEventListener('click', endPreloader);
         }
+        if (mainContent) {
+            mainContent.classList.add('loaded');
+        }
+        
+        initializeMainContentScripts();
+    }
+
+    // Function to cycle through greetings
+    function showNextGreeting() {
+        // If we've shown all greetings, end the preloader
+        if (greetingIndex >= greetings.length) {
+            endPreloader();
+            return; // Stop the sequence
+        }
+
+        // Display the current greeting
         helloElement.textContent = greetings[greetingIndex];
         helloElement.style.opacity = '1';
+
+        // Set a timeout to fade out the greeting before showing the next one
         setTimeout(() => {
             helloElement.style.opacity = '0';
-        }, GREETING_DURATION - 500);
+        }, GREETING_DURATION - 400); // Start fading out 400ms before the end
+
         greetingIndex++;
-        setTimeout(showNextGreeting, GREETING_DURATION);
+
+        // Schedule the next greeting
+        preloaderTimeout = setTimeout(showNextGreeting, GREETING_DURATION);
     }
+
+    // Add the event listener to allow skipping
+    if (preloader) {
+        preloader.addEventListener('click', endPreloader);
+    }
+
+    // Start the greeting sequence
     showNextGreeting();
 
 
