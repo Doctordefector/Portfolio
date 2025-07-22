@@ -8,6 +8,11 @@
     --font-body: 'Inter', sans-serif;
 }
 
+/* --- ANIMATION SETUP (FOR BOTH FRAMES) --- */
+@property --angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+@keyframes spin { to { --angle: 360deg; } }
+
+
 /* --- Global Styles & Resets --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -25,32 +30,15 @@ a:hover { color: var(--accent-color); }
 
 /* --- Preloader --- */
 #preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: opacity 0.8s ease-in-out;
-    cursor: pointer; /* Show a pointer on hover to indicate it's skippable */
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: #000; display: flex; justify-content: center;
+    align-items: center; z-index: 9999;
+    transition: opacity 0.8s ease-in-out; cursor: pointer;
 }
-
-/* This is the corrected style */
-#preloader.fade-out {
-    opacity: 0;
-    pointer-events: none; /* Now only non-clickable AFTER it starts fading out */
-}
-
+#preloader.fade-out { opacity: 0; pointer-events: none; }
 #language-hello {
-    color: var(--heading-color);
-    font-family: var(--font-body);
-    font-size: 2.5rem;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    color: var(--heading-color); font-family: var(--font-body); font-size: 2.5rem;
+    opacity: 0; transition: opacity 0.5s ease-in-out;
 }
 
 /* --- Navigation --- */
@@ -86,6 +74,28 @@ a:hover { color: var(--accent-color); }
 .project-item h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 .project-item span { color: #888; font-size: 0.9rem; }
 
+/* --- "Currently Working At" Section --- */
+#work-feature { text-align: center; }
+#work-feature h2 { margin-bottom: 2rem; }
+.lux-frame {
+    display: inline-block;
+    position: relative;
+    padding: 3px;
+    background-color: #111;
+    border: 1px solid transparent;
+    border-image: conic-gradient(from var(--angle), #555, #ddd, #555) 1;
+    animation: spin 3s linear infinite;
+    box-shadow: 0 0 15px rgba(221, 221, 221, 0.2);
+}
+.lux-frame-content {
+    background-color: #111;
+    padding: 3rem 5rem;
+    color: var(--text-color);
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+}
+
 /* --- Contact Display Section --- */
 #contact .large-heading { font-size: 2.5rem; letter-spacing: 0.05em; font-weight: 500; margin-bottom: 1.5rem; }
 .contact-details { display: flex; flex-direction: column; gap: 0.5rem; }
@@ -99,7 +109,17 @@ a:hover { color: var(--accent-color); }
 .about-text blockquote { font-family: var(--font-body); font-size: 2rem; line-height: 1.4; font-weight: 500; color: var(--heading-color); border: none; padding: 0; margin: 0 0 2rem 0; }
 .about-text .cta-link { font-size: 1.1rem; }
 .about-image-container { flex: 1; max-width: 250px; text-align: left; }
-.about-image-container img { width: 100%; height: auto; margin-bottom: 1.5rem; }
+.image-frame {
+    padding: 3px;
+    margin-bottom: 1.5rem;
+    background: conic-gradient(from var(--angle), var(--light-grey), var(--accent-color), white, var(--accent-color), var(--light-grey));
+    animation: spin 4s linear infinite;
+}
+.image-frame img {
+    width: 100%;
+    height: auto;
+    display: block; /* Removes unwanted space */
+}
 .image-socials { display: flex; flex-direction: column; gap: 0.5rem; }
 .image-socials a { font-size: 1rem; }
 
@@ -130,4 +150,5 @@ footer { background-color: var(--bg-color); padding: 2rem; border-top: 1px solid
     .projects-layout, .about-layout { flex-direction: column; }
     .timeline-graphic { display: none; }
     .about-image-container { max-width: 100%; text-align: center; margin-top: 2rem; }
+    .image-frame { display: inline-block; /* Center the frame properly on mobile */ }
 }
