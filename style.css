@@ -52,27 +52,81 @@ a:hover { color: var(--accent-color); }
 #hero p { font-size: 1.1rem; color: #aaa; }
 
 /* --- Projects Section --- */
-#projects h2 { text-align: center; font-size: 2rem; margin-bottom: 4rem; }
+#projects h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 4rem;
+    background: linear-gradient(90deg, #ffffff 0%, var(--accent-color) 50%, #ffffff 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s ease-in-out infinite;
+}
+@keyframes shimmer {
+    0%, 100% { background-position: 0% center; }
+    50% { background-position: 200% center; }
+}
 .projects-layout { display: flex; gap: 4rem; align-items: flex-start; }
+
+/* Timeline */
 .timeline-graphic { flex: 1; position: relative; padding-top: 1.5rem; align-self: stretch; }
-.timeline-graphic .line { width: 2px; height: 100%; background: var(--light-grey); position: absolute; left: 10%; top: 0; transform: scaleY(0); transform-origin: top; transition: transform 1s ease-out 0.2s; }
+.timeline-graphic .line {
+    width: 2px; height: 100%; position: absolute; left: 10%; top: 0;
+    background: linear-gradient(180deg, var(--accent-color), var(--light-grey));
+    transform: scaleY(0); transform-origin: top; transition: transform 1s ease-out 0.2s;
+}
 .timeline-graphic.visible .line { transform: scaleY(1); }
 .timeline-graphic .branch { position: relative; height: 140px; margin-left: 10%; }
-.timeline-graphic .branch::before { content: ''; position: absolute; width: 50%; height: 2px; background: var(--light-grey); top: 50%; left: 0; transform: scaleX(0); transform-origin: left; transition: transform 0.7s ease-out; }
+.timeline-graphic .branch::before {
+    content: ''; position: absolute; width: 50%; height: 2px; top: 50%; left: 0;
+    background: linear-gradient(90deg, var(--accent-color), var(--light-grey));
+    transform: scaleX(0); transform-origin: left; transition: transform 0.7s ease-out;
+}
 .timeline-graphic.visible .branch::before { transform: scaleX(1); }
 .timeline-graphic.visible .branch:nth-of-type(1)::before { transition-delay: 0.5s; }
 .timeline-graphic.visible .branch:nth-of-type(2)::before { transition-delay: 0.7s; }
 .timeline-graphic.visible .branch:nth-of-type(3)::before { transition-delay: 0.9s; }
-.timeline-graphic .node { position: absolute; width: 50px; height: 50px; border: 2px solid var(--light-grey); background-color: var(--bg-color); left: 50%; top: 50%; transform: translate(-50%, -50%) scale(0); transition: transform 0.5s ease-out; }
+.timeline-graphic .node {
+    position: absolute; width: 16px; height: 16px; border-radius: 50%;
+    border: 2px solid var(--accent-color); background-color: var(--bg-color);
+    left: 50%; top: 50%; transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease-out;
+    box-shadow: 0 0 12px rgba(163, 124, 67, 0.5);
+}
 .timeline-graphic.visible .node { transform: translate(-50%, -50%) scale(1); }
 .timeline-graphic.visible .branch:nth-of-type(1) .node { transition-delay: 0.8s; }
 .timeline-graphic.visible .branch:nth-of-type(2) .node { transition-delay: 1s; }
 .timeline-graphic.visible .branch:nth-of-type(3) .node { transition-delay: 1.2s; }
+
+/* Cards */
 .projects-list { flex: 2; display: flex; flex-direction: column; gap: 2rem; }
-.project-item { display: block; background-color: #111; border: 1px solid var(--light-grey); padding: 2.5rem 2rem; transition: transform 0.4s ease, background-color 0.4s ease; }
-.project-item:hover { transform: scale(1.03); background-color: #1a1a1a; border-color: #555; }
-.project-item h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
-.project-item span { color: #888; font-size: 0.9rem; }
+.project-item {
+    display: block; position: relative; background-color: #111;
+    border: 1px solid var(--light-grey); padding: 2.5rem 2rem;
+    transition: transform 0.4s ease, background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    overflow: hidden;
+}
+.project-item::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+    opacity: 0; transition: opacity 0.4s ease;
+}
+.project-item:hover {
+    transform: translateY(-4px);
+    background-color: #151515;
+    border-color: rgba(163, 124, 67, 0.3);
+    box-shadow: 0 8px 32px rgba(163, 124, 67, 0.1), 0 0 0 1px rgba(163, 124, 67, 0.1);
+}
+.project-item:hover::before { opacity: 1; }
+.project-number {
+    display: block; font-family: var(--font-heading); font-size: 0.8rem;
+    color: var(--accent-color); letter-spacing: 0.15em; margin-bottom: 0.75rem;
+    opacity: 0.7;
+}
+.project-item h3 { font-size: 1.6rem; margin-bottom: 0.75rem; transition: color 0.3s ease; }
+.project-item:hover h3 { color: var(--accent-color); }
+.project-desc { color: #777; font-size: 0.9rem; line-height: 1.7; }
 
 /* --- "Currently Working At" Section --- */
 #work-feature { text-align: center; }
