@@ -201,6 +201,35 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        // --- Inception: recursive site-within-site (Droste effect) ---
+        // Each level is a detailed mini-portfolio (hero, skills, work cards, viz,
+        // footer) with the next copy nested INLINE mid-page — length comes from
+        // real content, not padding, so it reads as a true page-within-a-page.
+        const inception = document.getElementById('inception');
+        if (inception) {
+            const DEPTH = 5;            // ponytail: depth as one knob
+            const rep = (n, s) => s.repeat(n);
+            const mod = {
+                nav:    '<div class="inception-nav">' + rep(5, '<span></span>') + '</div>',
+                hero:   '<div class="inception-hero">Andrei Chapliuk</div>',
+                tag:    '<div class="inception-bar shorter"></div>',
+                label:  '<div class="inception-label"></div>',
+                para:   '<div class="inception-bar"></div><div class="inception-bar short"></div><div class="inception-bar"></div>',
+                rule:   '<div class="inception-rule"></div>',
+                cards:  '<div class="inception-row">' + rep(3, '<div class="inception-cardlet"></div>') + '</div>',
+                foot:   '<div class="inception-foot"></div>'
+            };
+            // %NEST% = where this page embeds the smaller copy of itself
+            const page = mod.nav + mod.hero + mod.tag + mod.label + mod.para + mod.rule +
+                mod.label + mod.cards + mod.rule + mod.label + mod.cards + mod.rule +
+                '%NEST%' + mod.rule + mod.label + mod.para + mod.foot;
+            let html = '';             // innermost first, then wrap outward
+            for (let i = 0; i < DEPTH; i++) {
+                html = '<div class="inception-frame"><div class="inception-site">' + page.replace('%NEST%', html) + '</div></div>';
+            }
+            inception.innerHTML = html;
+        }
+
         // --- Audio Visualizer (Web Audio API) ---
         initAudioVisualizer();
     }

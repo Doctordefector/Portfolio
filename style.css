@@ -250,6 +250,57 @@ a:hover { color: var(--accent-color); }
     height: auto;
     background-color: #111;
 }
+/* Dissertation quote — dark-glass plaque inside the gold frame */
+.diss-card { display: block; max-width: 360px; }
+.diss-inner {
+    position: relative;
+    overflow: hidden;
+    padding: 2.2rem 1.7rem 1.4rem;
+    text-align: center;
+    background:
+        radial-gradient(130% 90% at 25% 0%, rgba(163, 124, 67, 0.22), transparent 55%),
+        linear-gradient(165deg, #16130d 0%, #0b0b0b 70%);
+}
+/* sheen sweep on hover */
+.diss-inner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.07) 50%, transparent 70%);
+    transform: translateX(-120%);
+    transition: transform 0.7s ease;
+}
+.rec-letter-frame:hover .diss-inner::before { transform: translateX(120%); }
+.diss-mark {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    line-height: 0.6;
+    color: var(--accent-color);
+    opacity: 0.45;
+}
+.diss-quote {
+    position: relative;
+    margin: 0.5rem 0 1.3rem;
+    font-family: var(--font-heading);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    letter-spacing: 0.03em;
+    color: var(--heading-color);
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.6);
+}
+.diss-cta {
+    display: inline-block;
+    padding-top: 0.85rem;
+    border-top: 1px solid rgba(163, 124, 67, 0.25);
+    font-family: var(--font-heading);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    transition: letter-spacing 0.4s ease;
+}
+.rec-letter-frame:hover .diss-cta { letter-spacing: 0.28em; }
 
 /* Inline Viz Sections (inside work cards) */
 .viz-section {
@@ -432,84 +483,97 @@ a:hover { color: var(--accent-color); }
     background-color: #111;
 }
 
-/* Inception — recursive site-within-site preview */
-.inception {
-    position: relative;
-    container-type: inline-size;
-}
+/* Inception — recursive site-within-site (Droste effect). One rule drives every
+   depth: each nested frame is a container, so % + cqi sizing self-scales as it
+   compounds inward. Markup + depth live in script.js. */
+.inception { position: relative; }
 .inception-frame {
     padding: 2px;
     background: conic-gradient(from var(--angle), var(--light-grey), var(--accent-color), white, var(--accent-color), var(--light-grey));
     animation: spin 4s linear infinite;
     box-shadow: 0 4px 20px rgba(163, 124, 67, 0.12);
+    container-type: inline-size;
 }
-.inception-l1 {
-    position: relative;
-    z-index: 1;
-}
-.inception-l2 {
-    position: absolute;
-    bottom: 1.5%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 56%;
-    z-index: 2;
+/* Every nested level: a smaller copy embedded INLINE mid-page. width<100% and
+   opacity<1 compound with depth → shrink + fade for free; each frame is its own
+   container so the cqi-sized modules below self-scale per level. */
+.inception-frame .inception-frame {
+    width: 62%;
+    margin: 6% auto;
+    opacity: 0.94;
     transition: transform 0.4s ease;
 }
-.inception-l3 {
-    position: absolute;
-    bottom: 2%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 52%;
-    z-index: 3;
-    transition: transform 0.4s ease;
-}
+.inception:hover .inception-frame .inception-frame { transform: translateY(-1%); }
 .inception-site {
+    overflow: hidden;
     background-color: #0a0a0a;
     display: flex;
     flex-direction: column;
-    padding: 5% 4% 80%;
+    gap: 5.5%;
+    padding: 7% 6%;
 }
-.inception-l2 .inception-site { padding: 5% 4% 65%; }
-.inception-l3 .inception-site { padding: 5% 4% 50%; }
 .inception-nav {
     display: flex;
     gap: 5%;
     justify-content: center;
-    margin-bottom: 3%;
+    margin-bottom: 1%;
 }
-.inception-l2 .inception-nav { margin-bottom: 2%; }
-.inception-l3 .inception-nav { margin-bottom: 1.5%; }
 .inception-nav span {
     width: 4%;
-    height: 2px;
+    height: clamp(1px, 0.6cqi, 2px);
     background: #333;
     border-radius: 1px;
 }
 .inception-hero {
     font-family: var(--font-heading);
     color: var(--heading-color);
-    font-size: clamp(0.4rem, 3cqi, 0.7rem);
-    letter-spacing: 0.15em;
+    font-size: clamp(0.18rem, 3cqi, 0.7rem);
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    margin-bottom: 3%;
+    white-space: nowrap;
+    overflow: hidden;
 }
-.inception-hero.sm { font-size: clamp(0.25rem, 2.5cqi, 0.42rem); letter-spacing: 0.08em; margin-bottom: 2%; }
-.inception-hero.xs { font-size: clamp(0.18rem, 2cqi, 0.3rem); letter-spacing: 0.06em; margin-bottom: 0; }
 .inception-bar {
-    width: 100%;
-    height: clamp(1.5px, 1cqi, 3px);
+    height: clamp(1px, 1cqi, 3px);
     background: linear-gradient(90deg, var(--accent-color), #222);
-    margin-bottom: 2%;
     border-radius: 1px;
     opacity: 0.5;
 }
 .inception-bar.short { width: 65%; }
 .inception-bar.shorter { width: 40%; }
-.inception-spacer { height: 3%; }
-.inception:hover .inception-l2 { transform: translateX(-50%) translateY(-1%); }
-.inception:hover .inception-l3 { transform: translateX(-50%) translateY(-1%); }
+/* detail modules — each scales per level via cqi */
+.inception-label {
+    width: 28%;
+    height: clamp(1px, 0.9cqi, 3px);
+    background: var(--accent-color);
+    opacity: 0.55;
+    border-radius: 1px;
+    margin-bottom: 1%;
+}
+.inception-rule {
+    height: 1px;
+    background: #1c1c1c;
+    margin: 1% 0;
+}
+.inception-row {
+    display: flex;
+    gap: 4%;
+}
+.inception-cardlet {
+    flex: 1;
+    aspect-ratio: 3 / 5;
+    background: linear-gradient(160deg, #161616, #0d0d0d);
+    border: 1px solid #222;
+    border-radius: 2px;
+}
+.inception-foot {
+    width: 45%;
+    height: clamp(2px, 1.4cqi, 5px);
+    background: #1a1a1a;
+    border-radius: 1px;
+    align-self: center;
+    margin-top: 2%;
+}
 
 .work-cards .fade-in:nth-child(2) { transition-delay: 0.15s; }
 .work-cards .fade-in:nth-child(3) { transition-delay: 0.3s; }
