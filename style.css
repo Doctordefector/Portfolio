@@ -432,8 +432,154 @@ a:hover { color: var(--accent-color); }
     background-color: #111;
 }
 
+/* Inception — recursive site-within-site preview */
+.inception {
+    position: relative;
+    container-type: inline-size;
+}
+.inception-frame {
+    padding: 2px;
+    background: conic-gradient(from var(--angle), var(--light-grey), var(--accent-color), white, var(--accent-color), var(--light-grey));
+    animation: spin 4s linear infinite;
+    box-shadow: 0 4px 20px rgba(163, 124, 67, 0.12);
+}
+.inception-l1 {
+    position: relative;
+    z-index: 1;
+}
+.inception-l2 {
+    position: absolute;
+    bottom: 1.5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 56%;
+    z-index: 2;
+    transition: transform 0.4s ease;
+}
+.inception-l3 {
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 52%;
+    z-index: 3;
+    transition: transform 0.4s ease;
+}
+.inception-site {
+    background-color: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    padding: 5% 4% 80%;
+}
+.inception-l2 .inception-site { padding: 5% 4% 65%; }
+.inception-l3 .inception-site { padding: 5% 4% 50%; }
+.inception-nav {
+    display: flex;
+    gap: 5%;
+    justify-content: center;
+    margin-bottom: 3%;
+}
+.inception-l2 .inception-nav { margin-bottom: 2%; }
+.inception-l3 .inception-nav { margin-bottom: 1.5%; }
+.inception-nav span {
+    width: 4%;
+    height: 2px;
+    background: #333;
+    border-radius: 1px;
+}
+.inception-hero {
+    font-family: var(--font-heading);
+    color: var(--heading-color);
+    font-size: clamp(0.4rem, 3cqi, 0.7rem);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 3%;
+}
+.inception-hero.sm { font-size: clamp(0.25rem, 2.5cqi, 0.42rem); letter-spacing: 0.08em; margin-bottom: 2%; }
+.inception-hero.xs { font-size: clamp(0.18rem, 2cqi, 0.3rem); letter-spacing: 0.06em; margin-bottom: 0; }
+.inception-bar {
+    width: 100%;
+    height: clamp(1.5px, 1cqi, 3px);
+    background: linear-gradient(90deg, var(--accent-color), #222);
+    margin-bottom: 2%;
+    border-radius: 1px;
+    opacity: 0.5;
+}
+.inception-bar.short { width: 65%; }
+.inception-bar.shorter { width: 40%; }
+.inception-spacer { height: 3%; }
+.inception:hover .inception-l2 { transform: translateX(-50%) translateY(-1%); }
+.inception:hover .inception-l3 { transform: translateX(-50%) translateY(-1%); }
+
 .work-cards .fade-in:nth-child(2) { transition-delay: 0.15s; }
 .work-cards .fade-in:nth-child(3) { transition-delay: 0.3s; }
+.work-cards .fade-in:nth-child(4) { transition-delay: 0.45s; }
+.work-cards .fade-in:nth-child(5) { transition-delay: 0.6s; }
+
+/* Equalizer — music visualizer */
+.equalizer {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 48px;
+    margin-bottom: 0.75rem;
+}
+.eq-bar {
+    flex: 1;
+    height: var(--h);
+    background: var(--accent-color);
+    border-radius: 2px 2px 0 0;
+    animation: eqBounce 0.8s ease-in-out infinite alternate;
+    animation-delay: var(--d);
+    opacity: 0.75;
+}
+@keyframes eqBounce {
+    from { height: calc(var(--h) * 0.25); }
+    to   { height: var(--h); }
+}
+.eq-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.6rem;
+}
+.eq-play-btn {
+    background: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    line-height: 1;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    flex-shrink: 0;
+}
+.eq-play-btn:hover { background-color: var(--accent-color); color: #000; }
+.eq-play-btn.playing { background-color: var(--accent-color); color: #000; }
+.eq-track-name {
+    font-family: var(--font-heading);
+    font-size: 0.65rem;
+    color: #555;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.eq-source-link {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    color: #555;
+    letter-spacing: 0.06em;
+    transition: color 0.3s ease;
+}
+.eq-source-link:hover { color: var(--accent-color); }
 
 /* --- Contact Display Section --- */
 #contact .large-heading { font-size: 2.5rem; letter-spacing: 0.05em; font-weight: 500; margin-bottom: 1.5rem; }
