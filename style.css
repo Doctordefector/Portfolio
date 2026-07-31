@@ -303,11 +303,6 @@ a:hover { color: var(--accent-color); }
 .rec-letter-frame:hover .diss-cta { letter-spacing: 0.28em; }
 
 /* Inline Viz Sections (inside work cards) */
-.viz-section {
-    margin-top: 1.25rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--light-grey);
-}
 .viz-label {
     display: block;
     font-family: var(--font-heading);
@@ -315,6 +310,12 @@ a:hover { color: var(--accent-color); }
     color: #666;
     letter-spacing: 0.08em;
     margin-bottom: 0.75rem;
+}
+
+.viz-section {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--light-grey);
 }
 
 /* Dot Grid — 32 customers */
@@ -600,40 +601,6 @@ a:hover { color: var(--accent-color); }
 @keyframes eqBounce {
     from { height: calc(var(--h) * 0.25); }
     to   { height: var(--h); }
-}
-.eq-controls {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    margin-bottom: 0.6rem;
-}
-.eq-play-btn {
-    background: transparent;
-    border: 1px solid var(--accent-color);
-    color: var(--accent-color);
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 0.7rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    line-height: 1;
-    transition: background-color 0.2s ease, color 0.2s ease;
-    flex-shrink: 0;
-}
-.eq-play-btn:hover { background-color: var(--accent-color); color: #000; }
-.eq-play-btn.playing { background-color: var(--accent-color); color: #000; }
-.eq-track-name {
-    font-family: var(--font-heading);
-    font-size: 0.65rem;
-    color: #555;
-    letter-spacing: 0.06em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 .eq-source-link {
     display: inline-block;

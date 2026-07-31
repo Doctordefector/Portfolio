@@ -162,7 +162,6 @@
                         <p>A YouTube Music player for Windows, written in Compose Desktop on the JVM. Not a browser wrapper: its own VLC playback engine, local database and two-way library sync. Synced lyrics, a 10-band equalizer, offline downloads, Discord Rich Presence and Listen Together rooms. 33 stars, 56 releases, GPL-3.0.</p>
                         <span class="work-card-tag">Kotlin / Compose Desktop</span>
                         <div class="viz-section">
-                            <span class="viz-label">Now playing &middot; visualizer</span>
                             <div class="equalizer" id="equalizer">
                                 <span class="eq-bar" style="--h:40%;--d:0s;"></span>
                                 <span class="eq-bar" style="--h:40%;--d:0.15s;"></span>
@@ -176,10 +175,6 @@
                                 <span class="eq-bar" style="--h:40%;--d:0.28s;"></span>
                                 <span class="eq-bar" style="--h:40%;--d:0.18s;"></span>
                                 <span class="eq-bar" style="--h:40%;--d:0.32s;"></span>
-                            </div>
-                            <div class="eq-controls">
-                                <button id="eq-play" class="eq-play-btn" title="Play music">▶</button>
-                                <span id="eq-track-name" class="eq-track-name"></span>
                             </div>
                             <a href="https://doctordefector.github.io/Lyrenne/" target="_blank" rel="noopener" class="eq-source-link">lyrenne &middot; download &amp; docs ↗</a>
                             <a href="https://github.com/Doctordefector/Lyrenne" target="_blank" rel="noopener" class="eq-source-link">github.com/Doctordefector/Lyrenne ↗</a>
@@ -265,7 +260,6 @@
         </footer>
     </div>
 
-    <audio id="eq-audio" crossorigin="anonymous" loop style="display:none;"></audio>
     <script src="script.js"></script>
 </body>
 </html>
