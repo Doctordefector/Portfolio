@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- Preloader Language Cycler ---
+    // ponytail: cut from 7 greetings (~6s) to 3 (~2.5s) — visitors bounce on long preloaders
     const greetings = [
-        "Hello!", "Привет!", "Γειά σου!", "Привіт!", "Bonjour!", "你好!", "Hallo!"
+        "Hello!", "Привет!", "Γειά σου!"
     ];
     let greetingIndex = 0;
     const preloader = document.getElementById('preloader');

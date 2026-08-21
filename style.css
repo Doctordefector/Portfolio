@@ -580,6 +580,7 @@ a:hover { color: var(--accent-color); }
 .work-cards .fade-in:nth-child(3) { transition-delay: 0.3s; }
 .work-cards .fade-in:nth-child(4) { transition-delay: 0.45s; }
 .work-cards .fade-in:nth-child(5) { transition-delay: 0.6s; }
+.work-cards .fade-in:nth-child(6) { transition-delay: 0.75s; }
 
 /* Equalizer — music visualizer */
 .equalizer {
