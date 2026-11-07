@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const checkCode = () => {
                 if (currentInput === CORRECT_CODE) {
-                    window.location.href = 'secret.html?v=4';
+                    window.location.href = 'secret.html?v=5';
                 }
                 // Reset if incorrect and length is 4 or more
                 if (currentInput.length >= 4 && currentInput !== CORRECT_CODE) {

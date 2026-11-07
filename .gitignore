@@ -1,2 +1,5 @@
 # Local agent config, not part of the site
 .claude/
+
+# Full-size source photo; the site uses the optimised Andrei.jpg
+Andrei-original.png
