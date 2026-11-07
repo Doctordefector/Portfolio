@@ -4,253 +4,384 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andrei Chapliuk | Portfolio</title>
-    <meta name="description" content="Andrei Chapliuk — student founder. Commercially sold software, a Future Innovators scholarship for a reusable-battery standard, and published right-to-repair research.">
+    <meta name="description" content="Andrei Chapliuk: student and freelance developer in Cyprus. Lyrenne (open-source YouTube Music player), Hanko, game patches and full-stack TypeScript work.">
     <meta property="og:title" content="Andrei Chapliuk | Portfolio">
-    <meta property="og:description" content="Student founder: sold software commercially, won a Future Innovators scholarship, published right-to-repair research.">
+    <meta property="og:description" content="Student and freelance developer. Lyrenne, Hanko, game patches, full-stack TypeScript.">
     <meta property="og:type" content="website">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230a0a0a'/%3E%3Ctext x='32' y='45' font-family='monospace' font-size='38' fill='%23A37C43' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0c0e'/%3E%3Ctext x='32' y='45' font-family='monospace' font-size='38' fill='%238FB3E8' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 
-    <!-- PRELOADER SECTION -->
     <div id="preloader">
         <div id="language-hello">Hello!</div>
     </div>
 
-    <!-- MAIN CONTENT WRAPPER -->
     <div id="main-content">
         <header class="sticky-nav">
             <nav>
                 <a href="#hero">Home</a>
-                <a href="#projects">Skillset</a>
-                <a href="#work">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#work">Work</a>
                 <a href="#about-me">About</a>
                 <a href="#contact">Contact</a>
             </nav>
         </header>
 
         <main>
-            <!-- HERO SECTION -->
+            <!-- HERO -->
             <section id="hero">
+                <div class="hero-glow" aria-hidden="true"><span></span><span></span><span></span></div>
+                <span class="status-pill"><span class="status-dot"></span>Freelancing &middot; currently under contract</span>
                 <h1 class="scramble-text">Andrei Chapliuk</h1>
-                <p>Student. Founder. Growing since birth.</p>
+                <p class="hero-tagline">Student, Freelancer.</p>
+                <div class="hero-ctas">
+                    <a href="#work" class="btn btn--primary">See my work</a>
+                    <a href="https://github.com/Doctordefector" target="_blank" rel="noopener" class="btn btn--ghost">GitHub &#8599;</a>
+                </div>
             </section>
 
-            <!-- PROJECTS SECTION -->
-            <section id="projects">
-                <h2>Skillset and Highlights</h2>
-                <div class="projects-layout">
-                    <!-- Left Column: Timeline Graphic -->
-                    <div class="timeline-graphic fade-in">
-                        <div class="line"></div>
-                        <div class="branch"><div class="node"></div></div>
-                        <div class="branch"><div class="node"></div></div>
-                        <div class="branch"><div class="node"></div></div>
+            <!-- STATS -->
+            <section id="stats" class="fade-in" aria-label="Highlights in numbers">
+                <div class="stat"><span class="stat-num" data-count="56">56</span><span class="stat-label">GitHub stars on Lyrenne</span></div>
+                <div class="stat"><span class="stat-num" data-count="4200" data-suffix="+">4200+</span><span class="stat-label">release downloads</span></div>
+                <div class="stat"><span class="stat-num" data-count="87">87</span><span class="stat-label">Lyrenne releases</span></div>
+                <div class="stat"><span class="stat-num" data-count="32">32</span><span class="stat-label">paying customers at 15</span></div>
+            </section>
+
+            <!-- SKILLS -->
+            <section id="skills">
+                <span class="eyebrow">01 &middot; Skills</span>
+                <h2>Skills and education</h2>
+                <div class="skill-grid">
+                    <div class="skill-card fade-in">
+                        <span class="skill-icon" aria-hidden="true">&lt;/&gt;</span>
+                        <h3>Engineering</h3>
+                        <p>I've built and sold software, shipped open-source apps with thousands of downloads, and worked on production web platforms as a freelancer.</p>
+                        <div class="chips">
+                            <span class="chip" style="--c:#A97BFF">Kotlin</span>
+                            <span class="chip" style="--c:#3178C6">TypeScript</span>
+                            <span class="chip" style="--c:#3572A5">Python</span>
+                            <span class="chip" style="--c:#F05138">Swift</span>
+                            <span class="chip" style="--c:#f34b7d">C / C++</span>
+                            <span class="chip" style="--c:#178600">C#</span>
+                        </div>
                     </div>
-                    <!-- Right Column: Projects List -->
-                    <div class="projects-list">
-                        <a href="#" class="project-item fade-in"><span class="project-number">01</span><h3>Languages</h3><span class="project-desc">I speak English at C2 level and Russian natively, and I'm comfortable collaborating across language barriers.</span></a>
-                        <a href="#" class="project-item fade-in"><span class="project-number">02</span><h3>Skills</h3><span class="project-desc">I build things and ship them. I've developed and sold software commercially, built full-stack web tools during a professional internship, and delivered projects end-to-end.</span></a>
-                        <a href="#" class="project-item fade-in"><span class="project-number">03</span><h3>Education &amp; Knowledge</h3><span class="project-desc">7 IGCSEs including Maths, Economics, ICT and Global Perspectives. Currently completing three A-Levels (Business, Psychology, and Language) alongside an EPQ. Apolyt&iacute;rion (Cyprus school-leaving certificate): 17.5/20. Recipient of a 30% Future Innovators Scholarship (Immerse Education) for a reusable-battery standard proposal.</span></a>
+                    <div class="skill-card fade-in">
+                        <span class="skill-icon" aria-hidden="true">Aa</span>
+                        <h3>Languages</h3>
+                        <p>English at C2 level and native Russian. I'm comfortable working with teams across languages.</p>
+                        <div class="chips">
+                            <span class="chip" style="--c:#8FB3E8">English &middot; C2</span>
+                            <span class="chip" style="--c:#8FB3E8">Russian &middot; native</span>
+                        </div>
+                    </div>
+                    <div class="skill-card fade-in">
+                        <span class="skill-icon" aria-hidden="true">&#9733;</span>
+                        <h3>Education</h3>
+                        <p>7 IGCSEs including Maths, Economics, ICT and Global Perspectives. Studying A-Levels in Business, Psychology and Language, plus an EPQ. Apolyt&iacute;rion (Cyprus school-leaving certificate): 17.5/20.</p>
+                        <div class="chips">
+                            <span class="chip" style="--c:#8CC7B5">30% Future Innovators Scholarship</span>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- "CURRENTLY WORKING AT" SECTION -->
-            <section id="work-feature" class="fade-in">
-                <h2>Currently Working At</h2>
-                <div class="lux-frame">
-                    <div class="lux-frame-content">
-                        Open to internships, part-time roles, and early-stage startup projects. Based in Cyprus, available remotely.
+            <!-- NOW -->
+            <section id="now" class="fade-in">
+                <span class="eyebrow">02 &middot; Now</span>
+                <div class="now-card">
+                    <span class="status-dot"></span>
+                    <div>
+                        <h2>Freelance developer, under contract</h2>
+                        <p>I'm working on a full-stack TypeScript platform under NDA, alongside my A-Levels and Hanko. I'm not taking on new work right now.</p>
                     </div>
                 </div>
             </section>
 
-            <!-- PROJECTS / WORK SECTION -->
-            <section id="work" class="fade-in">
-                <h2>Projects &amp; Work</h2>
-                <div class="work-cards">
-                    <div class="work-card fade-in">
-                        <span class="work-card-context">Triiibe / STARTRIBE LTD &middot; Internship, 2025</span>
+            <!-- WORK -->
+            <section id="work">
+                <span class="eyebrow">03 &middot; Work</span>
+                <h2>Projects and work</h2>
+
+                <div class="work-grid">
+
+                    <!-- LYRENNE -->
+                    <article class="card card--feature fade-in">
+                        <div class="card-body">
+                            <span class="card-context">Open source &middot; 2026 &middot; GPL-3.0</span>
+                            <h3>Lyrenne</h3>
+                            <p>A free YouTube Music player for Windows and Linux, written in Compose Desktop on the JVM. It has its own VLC playback engine, a local database and two-way library sync, not a browser wrapper. Synced lyrics, a 10-band equalizer, offline downloads, Discord Rich Presence and Listen Together rooms.</p>
+                            <ul class="sub-list">
+                                <li><strong>iPad:</strong> a SwiftUI and AVPlayer port with its own InnerTube client, offline downloads and a hand-rolled protobuf Listen Together client.</li>
+                                <li><strong>Steam Deck:</strong> a Decky Loader plugin that controls a headless Lyrenne build over localhost from the Game Mode menu. About 250&nbsp;MB of RAM while playing.</li>
+                                <li>Distributed through GitHub Releases, Scoop and winget.</li>
+                            </ul>
+                            <div class="chips">
+                                <span class="chip" style="--c:#A97BFF">Kotlin</span>
+                                <span class="chip" style="--c:#F05138">Swift</span>
+                                <span class="chip" style="--c:#3178C6">TypeScript</span>
+                            </div>
+                        </div>
+                        <div class="card-visual">
+                            <div class="player">
+                                <div class="player-head">
+                                    <span class="player-art" aria-hidden="true"></span>
+                                    <div class="player-meta">
+                                        <span class="player-title">Now playing</span>
+                                        <span class="player-sub">Lyrenne v2.20</span>
+                                    </div>
+                                </div>
+                                <div class="equalizer" aria-hidden="true">
+                                    <span class="eq-bar" style="--h:55%;--d:0s;"></span>
+                                    <span class="eq-bar" style="--h:80%;--d:0.15s;"></span>
+                                    <span class="eq-bar" style="--h:65%;--d:0.3s;"></span>
+                                    <span class="eq-bar" style="--h:95%;--d:0.1s;"></span>
+                                    <span class="eq-bar" style="--h:70%;--d:0.25s;"></span>
+                                    <span class="eq-bar" style="--h:85%;--d:0.05s;"></span>
+                                    <span class="eq-bar" style="--h:60%;--d:0.2s;"></span>
+                                    <span class="eq-bar" style="--h:90%;--d:0.35s;"></span>
+                                    <span class="eq-bar" style="--h:50%;--d:0.12s;"></span>
+                                    <span class="eq-bar" style="--h:75%;--d:0.28s;"></span>
+                                    <span class="eq-bar" style="--h:65%;--d:0.18s;"></span>
+                                    <span class="eq-bar" style="--h:45%;--d:0.32s;"></span>
+                                </div>
+                                <div class="mini-stats">
+                                    <span><b>56</b>stars</span>
+                                    <span><b>87</b>releases</span>
+                                    <span><b>4.2k+</b>downloads</span>
+                                </div>
+                            </div>
+                            <div class="link-row">
+                                <a href="https://doctordefector.github.io/Lyrenne/" target="_blank" rel="noopener">Website &#8599;</a>
+                                <a href="https://github.com/Doctordefector/Lyrenne" target="_blank" rel="noopener">Desktop &#8599;</a>
+                                <a href="https://github.com/Doctordefector/Lyrenne-iPad" target="_blank" rel="noopener">iPad &#8599;</a>
+                                <a href="https://github.com/Doctordefector/Lyrenne-Decky" target="_blank" rel="noopener">Steam Deck &#8599;</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- HANKO -->
+                    <article class="card card--feature card--flip fade-in">
+                        <div class="card-body">
+                            <span class="card-context">Student company &middot; Junior Achievement Cyprus &middot; 2026/27</span>
+                            <h3>Hanko <span class="jp">判子</span></h3>
+                            <p>A bag charm with a swappable cap and an NFC chip inside. Two people tap phones and swap profile cards instead of social handles. Each meeting adds to a shared history, and socials only unlock when both people agree. There's no app to install and no location tracking.</p>
+                            <p>I built the product: the web app the charm opens, the card designer, the admin and charm-minting tools, and the 3D models for the printed parts.</p>
+                            <ul class="sub-list">
+                                <li>Node 22 with zero dependencies (built-in <code>node:sqlite</code>), web push, deployed on Render.</li>
+                                <li>Automated QA that screenshots every page on 7 phone sizes, a contrast checker, and a simulated playtest of a whole school.</li>
+                                <li>Blender pipeline for product renders and printable STLs.</li>
+                            </ul>
+                            <div class="chips">
+                                <span class="chip" style="--c:#f1e05a">JavaScript</span>
+                                <span class="chip" style="--c:#3572A5">Python</span>
+                                <span class="chip" style="--c:#8CC7B5">NFC</span>
+                                <span class="chip" style="--c:#e87d0d">Blender</span>
+                            </div>
+                        </div>
+                        <div class="card-visual">
+                            <div class="tap-demo" aria-hidden="true">
+                                <div class="tap-phone tap-phone--a"><span class="tap-seal">A</span><span class="tap-line"></span><span class="tap-line short"></span></div>
+                                <div class="tap-ripple"><span></span><span></span><span></span></div>
+                                <div class="tap-phone tap-phone--b"><span class="tap-seal">K</span><span class="tap-line"></span><span class="tap-line short"></span></div>
+                            </div>
+                            <span class="visual-caption">Tap to swap cards</span>
+                        </div>
+                    </article>
+
+                    <!-- COMMERCIAL SOFTWARE -->
+                    <article class="card card--feature fade-in">
+                        <div class="card-body">
+                            <span class="card-context">Independent &middot; Feb 2022 to May 2025</span>
+                            <h3>Commercial Software</h3>
+                            <p>I built and sold software tools for the Star Citizen community, starting at 15. I handled the building, pricing, distribution and support myself. Within two months of launch it had 32 concurrent paying subscribers across three monthly tiers (&euro;20, &euro;30 and &euro;60), with no marketing budget.</p>
+                            <div class="viz-section">
+                                <span class="viz-label">32 concurrent paying customers at peak</span>
+                                <div class="dot-grid" id="dot-grid" aria-label="22 on the 60 euro tier, 8 on the 30 euro tier, 2 on the 20 euro tier"></div>
+                                <div class="dot-legend">
+                                    <span><i class="dot-swatch dot--60"></i>&euro;60 &times; 22</span>
+                                    <span><i class="dot-swatch dot--30"></i>&euro;30 &times; 8</span>
+                                    <span><i class="dot-swatch dot--20"></i>&euro;20 &times; 2</span>
+                                </div>
+                            </div>
+                            <div class="viz-section">
+                                <span class="viz-label">&euro;700+ revenue in the first 2 months</span>
+                                <div class="revenue-bar"><div class="revenue-fill"><span style="flex:20"></span><span style="flex:30"></span><span style="flex:60"></span></div></div>
+                            </div>
+                            <div class="chips">
+                                <span class="chip" style="--c:#f34b7d">Systems programming</span>
+                                <span class="chip" style="--c:#8FB3E8">Sales and support</span>
+                            </div>
+                        </div>
+                        <div class="card-visual">
+                            <div class="video-frame">
+                                <iframe src="https://www.youtube.com/embed/0udaaO09zwg" title="RINGS: A Documentary on Star Citizen's Cheating Underworld" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <span class="visual-caption">Featured in <em>RINGS</em>, a third-party documentary by Avenger_One (56k+ views)</span>
+                        </div>
+                    </article>
+
+                    <!-- NDA -->
+                    <article class="card fade-in">
+                        <span class="card-context">Freelance contract &middot; 2026 &middot; NDA</span>
+                        <h3>Admin Platform</h3>
+                        <p>Front-end and admin panel work on a production TypeScript monorepo. The details are under NDA, so here is the stack.</p>
+                        <dl class="spec">
+                            <dt>Repo</dt><dd>pnpm workspaces: api, web, shared</dd>
+                            <dt>API</dt><dd>NestJS, Prisma, PostgreSQL 16, Redis, JWT</dd>
+                            <dt>Web</dt><dd>React, Redux Toolkit, React Router, Vite, Tailwind</dd>
+                            <dt>Other</dt><dd>i18next, PixiJS, ExcelJS</dd>
+                            <dt>Ops</dt><dd>Docker Compose, Vitest, ESLint, Prettier</dd>
+                        </dl>
+                    </article>
+
+                    <!-- REVERSE ENGINEERING -->
+                    <article class="card fade-in">
+                        <span class="card-context">Open source &middot; 2026</span>
+                        <h3>Game patches and reverse engineering</h3>
+                        <ul class="proj-list">
+                            <li>
+                                <a href="https://github.com/Doctordefector/weekendwarrior60fpspatch" target="_blank" rel="noopener">Weekend Warriors 60fps patch &#8599;</a>
+                                <span>Splits the game's 15Hz logic from rendering so it runs at 60fps without speeding up. Built by transforming the decompiled ActionScript, shipped as a binary diff with a one-click installer.</span>
+                            </li>
+                            <li>
+                                <a href="https://github.com/Doctordefector/mdickie-facemod" target="_blank" rel="noopener">MDickie FaceMod &#8599;</a>
+                                <span>Puts your friends' faces, names and dialogue into four MDickie games by rewriting their SWF assets. Runs fully offline.</span>
+                            </li>
+                            <li>
+                                <a href="https://github.com/Doctordefector/Native-NX" target="_blank" rel="noopener">NX Recomp Hub &#8599;</a>
+                                <span>One launcher for static recompilation of Switch games (ARM64 and A32 to C, NVN to Vulkan), including a 32-bit front end for a Pikmin 3 port.</span>
+                            </li>
+                            <li>
+                                <a href="https://github.com/Doctordefector/Madeira" target="_blank" rel="noopener">Madeira &#8599;</a>
+                                <span>Contributions to running x86-64 Windows games on iOS via FEX-Emu, Wine and DXMT.</span>
+                            </li>
+                        </ul>
+                        <div class="chips">
+                            <span class="chip" style="--c:#3572A5">Python</span>
+                            <span class="chip" style="--c:#555555">C</span>
+                        </div>
+                    </article>
+
+                    <!-- TRIIIBE -->
+                    <article class="card fade-in">
+                        <span class="card-context">Triiibe / STARTRIBE LTD &middot; Internship, 2025</span>
                         <h3>Social Media Analysis Tool</h3>
-                        <p>Built a tool that automatically analyses and processes video content from social platforms. Developed as part of a business-development role alongside a content-branding system and a news portal.</p>
-                        <span class="work-card-tag">Python / Automation / BizDev</span>
-                        <div class="rec-letter">
-                            <span class="rec-letter-label">Letter of Recommendation</span>
-                            <div class="rec-letter-frame">
-                                <img src="Letter of Recommendation_Andrey Chapliuk.png" alt="Letter of Recommendation, Andrei Chapliuk">
-                            </div>
+                        <p>A tool that analyses and processes video content from social platforms. I built it during a business development internship, along with a content-branding system and a news portal.</p>
+                        <div class="chips">
+                            <span class="chip" style="--c:#3572A5">Python</span>
+                            <span class="chip" style="--c:#8FB3E8">Automation</span>
                         </div>
-                    </div>
-                    <div class="work-card fade-in">
-                        <span class="work-card-context">Independent &middot; Feb 2022–May 2025</span>
-                        <h3>Commercial Software</h3>
-                        <p>Developed and sold software tools targeting the Star Citizen gaming community, the most crowdfunded game in history ($1B+ raised). Built, priced, distributed and supported entirely solo at age 15. Reached 32 concurrent paying subscribers across three pricing tiers within 2 months of launch (&euro;20/&euro;30/&euro;60 per month) through organic community growth with zero marketing budget.</p>
-                        <span class="work-card-tag">Systems Programming / Entrepreneurship</span>
+                        <a href="Letter of Recommendation_Andrey Chapliuk.png" target="_blank" class="doc-thumb">
+                            <img src="Letter of Recommendation_Andrey Chapliuk.png" alt="Letter of recommendation from STARTRIBE LTD" loading="lazy">
+                            <span class="doc-thumb-label">Letter of recommendation &#8599;</span>
+                        </a>
+                    </article>
 
-                        <!-- Customers visual: 32 dots -->
-                        <div class="viz-section">
-                            <span class="viz-label">32 concurrent paying customers at peak</span>
-                            <div class="dot-grid" aria-label="32 concurrent paying customers at peak">
-                                <span class="dot dot--60" data-tier="€60"></span><span class="dot dot--60" data-tier="€60"></span><span class="dot dot--60" data-tier="€60"></span><span class="dot dot--60" data-tier="€60"></span><span class="dot dot--60" data-tier="€60"></span><span class="dot dot--60" data-tier="€60"></span><span class="dot dot--60" data-tier="€60"></span><span class="dot dot--60" data-tier="€60"></span>
-                                <span class="dot dot--60" data-tier="€60"></span><span class="dot dot--60" data-tier="€60"></span><span class="dot dot--60" data-tier="€60"></span><span class="dot dot--60" data-tier="€60"></span><span class="dot dot--60" data-tier="€60"></span><span class="dot dot--60" data-tier="€60"></span><span class="dot dot--60" data-tier="€60"></span><span class="dot dot--60" data-tier="€60"></span>
-                                <span class="dot dot--60" data-tier="€60"></span><span class="dot dot--60" data-tier="€60"></span><span class="dot dot--60" data-tier="€60"></span><span class="dot dot--60" data-tier="€60"></span><span class="dot dot--60" data-tier="€60"></span><span class="dot dot--60" data-tier="€60"></span><span class="dot dot--30" data-tier="€30"></span><span class="dot dot--30" data-tier="€30"></span>
-                                <span class="dot dot--30" data-tier="€30"></span><span class="dot dot--30" data-tier="€30"></span><span class="dot dot--30" data-tier="€30"></span><span class="dot dot--30" data-tier="€30"></span><span class="dot dot--30" data-tier="€30"></span><span class="dot dot--30" data-tier="€30"></span><span class="dot dot--20" data-tier="€20"></span><span class="dot dot--20" data-tier="€20"></span>
-                            </div>
-                            <div class="dot-legend">
-                                <span class="dot-legend-item"><span class="dot-swatch dot-swatch--60"></span>&euro;60 &times; 22</span>
-                                <span class="dot-legend-item"><span class="dot-swatch dot-swatch--30"></span>&euro;30 &times; 8</span>
-                                <span class="dot-legend-item"><span class="dot-swatch dot-swatch--20"></span>&euro;20 &times; 2</span>
-                            </div>
+                    <!-- BEQUIET -->
+                    <article class="card fade-in">
+                        <span class="card-context">Open source &middot; 2026 &middot; MIT</span>
+                        <h3>BeQuiet</h3>
+                        <p>A Windows 11 tray utility that lowers the volume of background apps and keeps the ones you pick (Discord, Telegram) at full volume. It uses the Core Audio session API, the same one the Windows volume mixer uses, and has a global hotkey.</p>
+                        <div class="duck-demo" aria-hidden="true">
+                            <div class="duck-row"><span>Discord</span><i style="--v:100%"></i></div>
+                            <div class="duck-row duck-row--ducked"><span>Game</span><i style="--v:100%"></i></div>
+                            <div class="duck-row duck-row--ducked"><span>Browser</span><i style="--v:100%"></i></div>
                         </div>
+                        <div class="chips">
+                            <span class="chip" style="--c:#178600">C#</span>
+                            <span class="chip" style="--c:#8FB3E8">NAudio</span>
+                        </div>
+                        <div class="link-row"><a href="https://github.com/Doctordefector/BeQuiet" target="_blank" rel="noopener">Repo &#8599;</a></div>
+                    </article>
 
-                        <!-- Revenue visual: fill bar -->
-                        <div class="viz-section">
-                            <span class="viz-label">&euro;700+ of passive revenue within 2 months of launching</span>
-                            <div class="revenue-bar">
-                                <div class="revenue-fill" style="--target-width: 100%;">
-                                    <span class="revenue-tier" style="flex: 20;">&euro;20</span>
-                                    <span class="revenue-tier" style="flex: 30;">&euro;30</span>
-                                    <span class="revenue-tier" style="flex: 60;">&euro;60</span>
-                                </div>
-                            </div>
-                            <div class="revenue-meta">
-                                <span>3 tiers &middot; monthly &amp; 6-month plans</span>
-                                <span>solo &middot; zero ad spend</span>
-                            </div>
-                        </div>
+                    <!-- DISSERTATION -->
+                    <article class="card fade-in">
+                        <span class="card-context">A-Level EPQ &middot; 2025/26</span>
+                        <h3>Dissertation</h3>
+                        <p>An extended research project on the right to repair: why repair gets obstructed and what that leads to. Graded 23/28.</p>
+                        <a href="Dissertation.pdf" target="_blank" class="quote-card">
+                            <span class="quote-mark">&ldquo;</span>
+                            <span class="quote-text">To what extent is the obstruction of repair done for profit by modern technology firms?</span>
+                            <span class="quote-cta">Read the paper &#8599;</span>
+                        </a>
+                    </article>
 
-                        <!-- Documentary -->
-                        <div class="viz-section">
-                            <span class="viz-label">Featured in third-party documentary</span>
-                            <div class="doc-embed">
-                                <div class="rec-letter-frame video-frame">
-                                    <iframe src="https://www.youtube.com/embed/0udaaO09zwg" title="Documentary: Commercial Game Software" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                                <span class="doc-meta">RINGS: A Documentary on Star Citizen's Cheating Underworld &middot; Avenger_One &middot; 56k+ views</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="work-card fade-in">
-                        <span class="work-card-context">Personal project &middot; 2025</span>
-                        <h3>This Portfolio</h3>
-                        <p>Designed and built from scratch. Custom layout, contact form, and responsive design. Ongoing.</p>
-                        <span class="work-card-tag">Web / Design</span>
-                        <div class="viz-section">
-                            <!-- Recursive site-within-site; frames generated in script.js -->
-                            <div class="inception" id="inception"></div>
-                        </div>
-                    </div>
-                    <div class="work-card fade-in">
-                        <span class="work-card-context">Academic &middot; A-Level EPQ, 2025/2026</span>
-                        <h3>Dissertation &amp; Research Paper</h3>
-                        <p>Extended research project exploring the modern-day right to repair, its reasons and consequences. Independent academic writing, methodology design, and critical analysis. Published as part of the A-Level Extended Project Qualification on which I recived an official grade of 23/28 .</p>
-                        <span class="work-card-tag">Research / Academic Writing</span>
-                        <div class="rec-letter">
-                            <span class="rec-letter-label">Read the full paper</span>
-                            <a href="Dissertation.pdf" target="_blank" class="rec-letter-frame diss-card">
-                                <div class="diss-inner">
-                                    <span class="diss-mark">&ldquo;</span>
-                                    <p class="diss-quote">To what extent is the obstruction of repair done for profit by modern technology firms?</p>
-                                    <span class="diss-cta">View PDF &#8599;</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="work-card fade-in">
-                        <span class="work-card-context">Immerse Education &middot; Future Innovators Scholarship Competition, early 2025</span>
+                    <!-- SCHOLARSHIP -->
+                    <article class="card fade-in">
+                        <span class="card-context">Immerse Education &middot; early 2025</span>
                         <h3>Future Innovators Scholarship</h3>
-                        <p>Awarded a 30% scholarship for my entry: a proposed standard for swappable, reusable battery systems &mdash; interchangeable packs that can be replaced and reused across devices instead of being discarded. Submitted in early 2025, ahead of the mainstream push: EU Regulation 2023/1542 had already mandated end-user replaceable batteries, but the movement has only since caught on. The same interest in repair and reuse later led to my EPQ dissertation.</p>
-                        <span class="work-card-tag">Engineering / Sustainability</span>
-                        <div class="rec-letter">
-                            <span class="rec-letter-label">View certificate</span>
-                            <a href="FISC_Scholarship_Certificate_Andrei_Chapliuk.pdf" target="_blank" class="rec-letter-frame diss-card">
-                                <div class="diss-inner">
-                                    <span class="diss-mark">30%</span>
-                                    <p class="diss-quote">Scholarship-winning entry: a standard for swappable, reusable battery systems</p>
-                                    <span class="diss-cta">View Certificate &#8599;</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="work-card fade-in">
-                        <span class="work-card-context">Open source &middot; 2026</span>
-                        <h3>Lyrenne</h3>
-                        <p>A YouTube Music player for Windows, written in Compose Desktop on the JVM. Not a browser wrapper, its own VLC playback engine, local database and two-way library sync. Synced lyrics, a 10-band equalizer, offline downloads, Discord Rich Presence and Listen Together rooms. 33 stars, 56 releases, GPL-3.0.</p>
-                        <span class="work-card-tag">Kotlin / Compose Desktop</span>
-                        <div class="viz-section">
-                            <div class="equalizer" id="equalizer">
-                                <span class="eq-bar" style="--h:40%;--d:0s;"></span>
-                                <span class="eq-bar" style="--h:40%;--d:0.15s;"></span>
-                                <span class="eq-bar" style="--h:40%;--d:0.3s;"></span>
-                                <span class="eq-bar" style="--h:40%;--d:0.1s;"></span>
-                                <span class="eq-bar" style="--h:40%;--d:0.25s;"></span>
-                                <span class="eq-bar" style="--h:40%;--d:0.05s;"></span>
-                                <span class="eq-bar" style="--h:40%;--d:0.2s;"></span>
-                                <span class="eq-bar" style="--h:40%;--d:0.35s;"></span>
-                                <span class="eq-bar" style="--h:40%;--d:0.12s;"></span>
-                                <span class="eq-bar" style="--h:40%;--d:0.28s;"></span>
-                                <span class="eq-bar" style="--h:40%;--d:0.18s;"></span>
-                                <span class="eq-bar" style="--h:40%;--d:0.32s;"></span>
-                            </div>
-                            <a href="https://doctordefector.github.io/Lyrenne/" target="_blank" rel="noopener" class="eq-source-link">lyrenne &middot; download &amp; docs ↗</a>
-                            <a href="https://github.com/Doctordefector/Lyrenne" target="_blank" rel="noopener" class="eq-source-link">github.com/Doctordefector/Lyrenne ↗</a>
-                        </div>
+                        <p>A 30% scholarship for my proposed standard for swappable, reusable battery packs that move between devices instead of being thrown away. I submitted it as EU Regulation 2023/1542 started requiring user-replaceable batteries, before most people were talking about it.</p>
+                        <a href="FISC_Scholarship_Certificate_Andrei_Chapliuk.pdf" target="_blank" class="quote-card">
+                            <span class="quote-mark quote-mark--big">30%</span>
+                            <span class="quote-text">A standard for swappable, reusable battery systems</span>
+                            <span class="quote-cta">View certificate &#8599;</span>
+                        </a>
+                    </article>
+
+                    <!-- PORTFOLIO -->
+                    <article class="card fade-in">
+                        <span class="card-context">Personal &middot; ongoing</span>
+                        <h3>This portfolio</h3>
+                        <p>Hand-written HTML, CSS and JS, no framework. There's a hidden page if you find the code.</p>
+                        <div class="inception" id="inception"></div>
+                    </article>
+                </div>
+
+                <div class="more-gh fade-in">
+                    <span class="more-gh-label">More on GitHub</span>
+                    <div class="more-gh-list">
+                        <a href="https://github.com/Doctordefector/Simple-Watermark" target="_blank" rel="noopener">Simple-Watermark <small>batch ffmpeg watermarking GUI</small></a>
+                        <a href="https://github.com/Doctordefector/Simple-Steam-Family-Library-Extractor" target="_blank" rel="noopener">Steam Family Library Extractor <small>JS</small></a>
+                        <a href="https://github.com/Doctordefector/scoop-lyrenne" target="_blank" rel="noopener">scoop-lyrenne <small>Scoop bucket</small></a>
+                        <a href="https://github.com/Doctordefector/Justusesoap" target="_blank" rel="noopener">Justusesoap <small>IGCSE group project</small></a>
+                        <a href="https://github.com/Doctordefector/Virtuasino" target="_blank" rel="noopener">Virtuasino <small>JS</small></a>
+                        <a href="https://github.com/Doctordefector" target="_blank" rel="noopener" class="more-gh-all">All repos &#8599;</a>
                     </div>
                 </div>
             </section>
 
-            <!-- CONTACT DISPLAY SECTION -->
-            <section id="contact">
-                <h2 class="large-heading">I'd love to work together.</h2>
-                <div class="contact-details">
-                    <a href="mailto:chapliukjr@gmail.com">chapliukjr@gmail.com ↗</a>
-                </div>
-            </section>
-
-            <!-- ABOUT ME SECTION -->
+            <!-- ABOUT -->
             <section id="about-me" class="fade-in">
+                <span class="eyebrow">04 &middot; About</span>
                 <div class="about-layout">
                     <div class="about-text">
-                        <h4>About Me</h4>
-                        <blockquote>Since I was 14 I had taken a practical interest in building software and tools that personally intersted me and distributing them and selling them. At 17 I spent two months on the business-development team at Triiibe, where I shipped several in house tools: a social-media analysis tool, a content-branding system, and a full news portal. I then spent eight months with another business development team under NDA, continuing market research and engineering efficient in house solutions focusing on business expansion and recognition in different countries such as Brazil and Argentina. I'm fluent in English and Russian, study Business, Psychology, and Language at A-Level, and recently published my own dissertation. My scholarship-winning entry proposed a standard for swappable, reusable batteries. I'm looking for the next thing to collaborate on and share with the world.</blockquote>
-                        <a href="#" class="cta-link">Learn more ↗</a>
-                    </div>
-                    <div class="about-image-container">
-                        <div class="image-frame">
-                            <img src="Andrei.png" alt="Andrei Himself">
+                        <h2>About me</h2>
+                        <p>I've been building and selling my own software since I was 14. At 17 I spent two months on Triiibe's business development team, where I built a social media analysis tool, a content-branding system and a news portal. After that I spent eight months with another business development team under NDA, doing market research and building internal tools for expansion into Brazil and Argentina.</p>
+                        <p>Now I freelance under contract while studying Business, Psychology and Language at A-Level. I also run Hanko and maintain Lyrenne. I speak English and Russian.</p>
+                        <div class="about-links">
+                            <a href="https://github.com/Doctordefector" target="_blank" rel="noopener" class="btn btn--ghost">GitHub &#8599;</a>
+                            <a href="https://www.linkedin.com/in/andrei-chapliuk-062235320/" target="_blank" rel="noopener" class="btn btn--ghost">LinkedIn &#8599;</a>
                         </div>
-                        <div class="image-socials">
-                            <a href="https://www.linkedin.com/in/andrei-chapliuk-062235320/" target="_blank">LinkedIn</a>
+                    </div>
+                    <div class="about-image">
+                        <div class="image-frame">
+                            <img src="Andrei.png" alt="Andrei Chapliuk">
                         </div>
                     </div>
                 </div>
             </section>
-            
-            <!-- CONTACT FORM SECTION (FUNCTIONAL) -->
-            <section id="contact-form-section" class="fade-in">
-                 <h2>Send a message</h2>
-                 <form id="contact-form" action="https://formspree.io/f/xanbeyky" method="POST">
-                    <div class="form-group">
-                        <input type="text" name="name" required placeholder="Your Name">
+
+            <!-- CONTACT -->
+            <section id="contact" class="fade-in">
+                <span class="eyebrow">05 &middot; Contact</span>
+                <h2 class="large-heading">Get in touch</h2>
+                <a class="contact-mail" href="mailto:chapliukjr@gmail.com">chapliukjr@gmail.com &#8599;</a>
+                <form id="contact-form" action="https://formspree.io/f/xanbeyky" method="POST">
+                    <div class="form-row">
+                        <input type="text" name="name" required placeholder="Your name" aria-label="Your name">
+                        <input type="email" name="email" required placeholder="Your email" aria-label="Your email">
                     </div>
-                    <div class="form-group">
-                        <input type="email" name="email" required placeholder="Your Email">
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" rows="5" required placeholder="Your Message"></textarea>
-                    </div>
-                    <button type="submit" class="ghost-button">Send ↗</button>
+                    <textarea name="message" rows="5" required placeholder="Your message" aria-label="Your message"></textarea>
+                    <button type="submit" class="btn btn--primary">Send message</button>
                 </form>
             </section>
-
         </main>
 
-        <!-- KEYPAD SECTION -->
         <div class="keypad-wrapper fade-in">
             <div id="keypad-container">
                 <div id="keypad-display"></div>
@@ -266,21 +397,23 @@
                     <button class="keypad-btn">9</button>
                     <button class="keypad-btn keypad-action" id="keypad-clear">C</button>
                     <button class="keypad-btn">0</button>
-                    <button class="keypad-btn keypad-action" id="keypad-backspace">⌫</button>
+                    <button class="keypad-btn keypad-action" id="keypad-backspace">&#9003;</button>
                 </div>
             </div>
         </div>
 
         <footer>
             <div class="footer-content">
-                <span>© Andrei Chapliuk 2026</span>
+                <span>&copy; Andrei Chapliuk 2026</span>
                 <div class="footer-right">
-                    <span>Andrei Chapliuk | Portfolio</span>
+                    <a href="https://github.com/Doctordefector" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://www.linkedin.com/in/andrei-chapliuk-062235320/" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="mailto:chapliukjr@gmail.com">Email</a>
                 </div>
             </div>
         </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=4"></script>
 </body>
 </html>

@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         class TextScramble {
             constructor(el) {
                 this.el = el;
-                this.chars = '!<>-_\\/[]{}—=+*^?#________';
+                this.chars = '!<>-_\\/[]{}=+*^?#________';
                 this.update = this.update.bind(this);
             }
             setText(newText) {
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const checkCode = () => {
                 if (currentInput === CORRECT_CODE) {
-                    window.location.href = 'secret.html'; // <-- UPDATED LINE
+                    window.location.href = 'secret.html?v=4';
                 }
                 // Reset if incorrect and length is 4 or more
                 if (currentInput.length >= 4 && currentInput !== CORRECT_CODE) {
@@ -225,6 +225,63 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             inception.innerHTML = html;
         }
+
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // --- Customer dot grid: 22 x €60, 8 x €30, 2 x €20 ---
+        const dotGrid = document.getElementById('dot-grid');
+        if (dotGrid) {
+            const tiers = [['60', 22], ['30', 8], ['20', 2]];
+            let i = 0, dots = '';
+            tiers.forEach(([tier, n]) => {
+                for (let k = 0; k < n; k++) dots += `<span class="dot dot--${tier}" style="--i:${i++}" title="€${tier}/month"></span>`;
+            });
+            dotGrid.innerHTML = dots;
+        }
+
+        // --- Stat count-up ---
+        const statObserver = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                obs.unobserve(entry.target);
+                const el = entry.target;
+                const target = +el.dataset.count;
+                const suffix = el.dataset.suffix || '';
+                if (reduceMotion) { el.textContent = target.toLocaleString() + suffix; return; }
+                const start = performance.now(), dur = 1400;
+                const tick = (now) => {
+                    const p = Math.min((now - start) / dur, 1);
+                    const eased = 1 - Math.pow(1 - p, 3);
+                    el.textContent = Math.round(target * eased).toLocaleString() + (p === 1 ? suffix : '');
+                    if (p < 1) requestAnimationFrame(tick);
+                };
+                requestAnimationFrame(tick);
+            });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('.stat-num[data-count]').forEach(el => {
+            el.textContent = '0';
+            statObserver.observe(el);
+        });
+
+        // --- Nav scroll-spy ---
+        const navLinks = [...document.querySelectorAll('.sticky-nav nav a')];
+        const spyTargets = navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+        const spy = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+            });
+        }, { rootMargin: '-45% 0px -50% 0px' });
+        spyTargets.forEach(t => spy.observe(t));
+
+        // --- Cursor spotlight on cards ---
+        document.querySelectorAll('.card, .skill-card').forEach(card => {
+            card.addEventListener('pointermove', (e) => {
+                const r = card.getBoundingClientRect();
+                card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+                card.style.setProperty('--my', `${e.clientY - r.top}px`);
+            });
+        });
 
     }
 
